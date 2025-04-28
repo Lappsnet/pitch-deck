@@ -128,13 +128,59 @@
         /* Slide 2: Problem (Asymmetric Style) */
         .slide-problem { justify-content: space-between; align-items: stretch; text-align: left; padding: 3rem 4rem; }
         .slide-problem .problem-main-content { display: flex; justify-content: space-between; align-items: center; flex-grow: 1; margin-bottom: 1.5rem; }
-        .slide-problem .problem-left { flex-basis: 55%; display: flex; flex-direction: column; justify-content: center; padding-right: 2rem; } /* Added padding */
+        .slide-problem .problem-left {
+            flex-basis: 55%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-right: 2rem;
+            max-width: 480px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
         .slide-problem .problem-right { flex-basis: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .slide-problem .problem-headline { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; animation: fadeInLeft 1s 0.2s ease-out backwards; }
+        .slide-problem .problem-headline {
+            font-size: 2.6rem;
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            margin-top: 0.2rem;
+            color: var(--text-dark);
+            width: 100%;
+            text-align: left;
+            letter-spacing: 0.01em;
+            word-break: break-word;
+        }
         .slide-problem .problem-graphic-placeholder { width: 100px; height: 100px; margin-bottom: 1.5rem; animation: fadeInLeft 1s 0.4s ease-out backwards; }
-        .slide-problem .problem-capsule { background-color: var(--primary-color); color: var(--bg-dark); padding: 1.2rem 1.8rem; border-radius: 50px; font-size: 1rem; font-weight: 600; line-height: 1.5; text-align: center; max-width: 350px; box-shadow: 0 5px 25px rgba(0, 255, 255, 0.3); animation: fadeInRight 1s 0.6s ease-out backwards; }
+        .slide-problem .problem-capsule {
+            background-color: var(--primary-color);
+            color: var(--bg-dark);
+            padding: 1.1rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1.08rem;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: left;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 4px 18px rgba(0,255,255,0.18);
+            margin-top: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
         .slide-problem .problem-conclusion { font-size: 1.05rem; color: var(--text-light); text-align: center; width: 100%; padding-top: 0.5rem; animation: fadeInUp 1s 0.8s ease-out backwards; }
         .slide-problem .problem-conclusion strong { color: var(--primary-color); font-weight: 700; }
+        @media (max-width: 700px) {
+            .slide-problem .problem-left, .slide-problem .problem-capsule {
+                max-width: 98vw;
+                min-width: 0;
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+            }
+            .slide-problem .problem-headline {
+                font-size: 1.3rem;
+            }
+        }
 
         /* Slide 3: Solution */
         .slide-solution .core-concept { margin-bottom: 2.5rem; animation: fadeInUp 1s 0.3s ease-out backwards; }
@@ -191,13 +237,80 @@
         .slide-business-model .stream-desc { font-size: 0.9rem; color: var(--text-dim); }
 
         /* Slide 8: Traction & Roadmap */
-        .slide-traction p.traction-achieved { margin-bottom: 2rem; font-style: italic; color: #a0a0a0; }
-        .slide-traction .timeline { position: relative; width: 80%; max-width: 700px; margin: 2rem auto 0 auto; border-left: 3px solid transparent; border-image: linear-gradient(180deg, var(--primary-color), var(--secondary-color)) 1; padding-left: 2.5rem; animation: fadeInUp 1s 0.3s ease-out backwards; }
-        .slide-traction .timeline-item { position: relative; margin-bottom: 2.5rem; }
-        .slide-traction .timeline-item::before { content: ''; position: absolute; left: -2.5rem; top: 5px; transform: translateX(-50%); width: 18px; height: 18px; background: var(--primary-color); border-radius: 50%; box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); transition: transform 0.3s ease; }
-        .slide-traction .timeline-item:hover::before { transform: scale(1.3) translateX(-19%); }
-        .slide-traction .timeline-date { font-family: 'Exo 2', sans-serif; font-weight: 700; color: var(--text-dark); display: block; margin-bottom: 0.3rem; font-size: 1.1rem; }
-        .slide-traction .timeline-desc { font-size: 1rem; color: var(--text-dim); }
+        .slide-traction .traction-achieved {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--bg-dark);
+            font-weight: 700;
+            border-radius: 30px;
+            padding: 0.7rem 1.5rem;
+            margin: 0 auto 1.5rem auto;
+            display: inline-block;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 12px rgba(0,255,255,0.12);
+            letter-spacing: 0.01em;
+            text-align: center;
+            max-width: 100%;
+            white-space: normal;
+            word-break: break-word;
+        }
+        .slide-traction .timeline {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 2.2rem;
+            position: relative;
+            overflow: visible;
+        }
+        .slide-traction .timeline-item {
+            position: relative;
+            margin-bottom: 2.2rem;
+            padding-left: 0.5rem;
+            min-height: 48px;
+            overflow: visible;
+        }
+        .slide-traction .timeline-item:last-child { margin-bottom: 0; }
+        .slide-traction .timeline-date {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 800;
+            color: var(--primary-color);
+            font-size: 1.15rem;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+        .slide-traction .timeline-desc {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            background: rgba(0,255,255,0.07);
+            border-radius: 12px;
+            padding: 0.7rem 1.1rem;
+            margin-bottom: 0.1rem;
+            margin-left: 0.2rem;
+            box-shadow: 0 1px 6px rgba(0,255,255,0.07);
+            word-break: break-word;
+            white-space: normal;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide-traction .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-color);
+            border: 2px solid #fff;
+        }
+        @media (max-width: 900px) {
+            .slide-traction .timeline { max-width: 99vw; padding-left: 1.1rem; }
+            .slide-traction .timeline-desc { font-size: 0.98rem; padding: 0.5rem 0.7rem; }
+            .slide-traction .timeline-date { font-size: 1rem; }
+        }
 
         /* Slide 9: Marketing & Community (Asymmetric Style) */
         .slide-marketing { justify-content: space-between; align-items: stretch; text-align: left; padding: 3rem 4rem; }
@@ -232,14 +345,56 @@
         .slide-ask p:nth-of-type(3) { margin-top: 2.5rem; font-size: 1.1rem; } /* 'OR' */
 
         /* Slide 14: Contact / Thank You */
-        .slide-contact .headline { border: none; margin-bottom: 2.5rem; }
-        .slide-contact .final-logos { display: flex; gap: 2.5rem; margin-bottom: 2.5rem; animation: fadeInUp 1s 0.3s ease-out backwards; align-items: center; }
-        .slide-contact .logo-placeholder { width: 180px; height: 60px; font-size: 1rem; }
-        .slide-contact .pharos-logo-placeholder { width: 120px; height: 40px; font-size: 0.8rem; }
-        .slide-contact .contact-info { font-size: 1.1rem; line-height: 1.9; margin-top: 1rem; animation: fadeInUp 1s 0.5s ease-out backwards; }
-        .slide-contact a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; }
-        .slide-contact a:hover { color: var(--text-dark); }
-        .slide-contact .call-to-action { font-family: 'Exo 2', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-dark); margin-top: 2.5rem; animation: fadeInUp 1s 0.7s ease-out backwards; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+        .slide-contact {
+            padding: 2.5rem 2rem 1.5rem 2rem !important;
+            min-height: 0;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+        .slide-contact .final-logos {
+            margin-bottom: 1.2rem;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .slide-contact .contact-info {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .slide-contact .call-to-action {
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .slide-contact .neon-green {
+            font-size: 3.2rem;
+            display: block;
+            margin: 0.5rem auto 0.5rem auto;
+            color: #39ff14;
+            text-shadow: 0 0 12px #39ff14, 0 0 32px #39ff14, 0 0 48px #39ff14;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+        }
+        .slide-contact .headline {
+            margin-bottom: 1.2rem !important;
+        }
+        .slide-contact .logo-placeholder, .slide-contact .pharos-logo-placeholder {
+            border: none !important;
+            box-shadow: none !important;
+            background: none !important;
+        }
+        .slide-contact .final-logos img {
+            max-width: 100%;
+            height: 40px;
+            object-fit: contain;
+        }
+        @media (max-width: 600px) {
+            .slide-contact { padding: 1.2rem 0.5rem 1rem 0.5rem !important; }
+            .slide-contact .neon-green { font-size: 2.1rem; }
+        }
 
         /* --- Navigation --- */
         .slide-nav { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
@@ -250,6 +405,72 @@
         /* Simple SVG Icon Styles */
         .svg-icon { fill: currentColor; }
 
+        .kali-logo-title {
+            font-size: 3.5rem;
+            font-family: 'Exo 2', 'Poppins', sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--primary-color);
+            margin: 0;
+            font-style: normal;
+            display: flex;
+            gap: 0.2em;
+            justify-content: center;
+            align-items: center;
+        }
+        .kali-logo-title span {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+            will-change: transform;
+            animation: kali-bounce 1.2s infinite alternate;
+        }
+        .kali-logo-title span:nth-child(1) { animation-delay: 0s; }
+        .kali-logo-title span:nth-child(2) { animation-delay: 0.15s; }
+        .kali-logo-title span:nth-child(3) { animation-delay: 0.3s; }
+        .kali-logo-title span:nth-child(4) { animation-delay: 0.45s; }
+        @keyframes kali-bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-18px) scale(1.1); }
+            100% { transform: translateY(0); }
+        }
+        .kali-logo-animated {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .neon-red {
+            color: #ff1744;
+            text-shadow: 0 0 8px #ff1744, 0 0 16px #ff1744, 0 0 24px #ff1744;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+        }
+        .neon-green {
+            color: #39ff14;
+            text-shadow: 0 0 8px #39ff14, 0 0 16px #39ff14, 0 0 24px #39ff14;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+        }
+
+        .slide-content.slide-traction {
+          padding-top: 3.5rem !important;
+          padding-bottom: 3.5rem !important;
+          min-height: 0;
+          box-sizing: border-box;
+          overflow-y: auto;
+          border-radius: 15px;
+        }
+        .slide-traction .timeline {
+          margin-bottom: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+        .slide-traction .timeline-item:last-child {
+          margin-bottom: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+
     </style>
 </head>
 <body>
@@ -257,37 +478,44 @@
     <div class="slide-container">
 
         <div class="slide-content slide-cover active">
-             <div class="logo-placeholder">Kali Logo Here</div>
-            <h1 class="tagline">Revolutionizing Real Estate Transactions on the Blockchain.</h1>
+             <div class="logo-placeholder kali-logo-animated">
+                <h1 class="kali-logo-title">
+                    <span>K</span>
+                    <span>A</span>
+                    <span>L</span>
+                    <span>I</span>
+                </h1>
+             </div>
+             <hr style="border: 1px solid var(--primary-color); margin: 20px 0;">
+             <h1 class="tagline">Rent - Buy - Invest In Real Estate Around the World</h1>
             <div class="powered-by">
-                Powered by <span class="pharos-logo-placeholder">Pharos Logo</span>
+                Powered by <span class="pharos-logo-placeholder"><img src="pharos_logo.png" alt="Pharos Logo" style="height: 40
+                px; object-fit: contain; vertical-align: middle;"></span><img src="hackquest_logo.png" alt="Hackquest Logo" style="height: 40px; margin-left: 10px; vertical-align: middle;">
             </div>
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #a0a0a0;">Event/Competition Name - Date</p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #a0a0a0;">Pharos Builder Base Camp 2025</p>
         </div>
 
         <div class="slide-content slide-problem">
             <div class="problem-main-content">
                 <div class="problem-left">
-                    <h2 class="problem-headline">$100+ Billion Lost Annually to Real Estate Friction</h2>
-                    <div class="problem-graphic-placeholder">
-                        <i class="fas fa-project-diagram fa-2x" style="color: var(--secondary-color);"></i>
-                    </div>
+                    <h2 class="problem-headline">
+                        <span class="neon-red">$100B+</span> Lost Every Year to Real Estate Inefficiencies
+                    </h2>
                 </div>
                 <div class="problem-right">
-                     <div class="problem-capsule">
-                        Weeks wasted & opaque processes hinder ~70% of property deals.
-                     </div>
+                    <div class="problem-capsule">
+                        Outdated fees, delays, and fragmented processes derail nearly <span style="color: var(red); font-weight: bold;">70%</span> of property transactions — creating a massive opportunity for disruption.
+                    </div>
                 </div>
             </div>
-            <p class="problem-conclusion">
-                Kali unlocks this inefficiency, paving the way for a projected <br><strong>$16 Trillion</strong> tokenized market by 2030.
-            </p>
         </div>
+        
 
         <div class="slide-content slide-solution">
-             <h2 class="headline">Kali: Seamless, Secure, Transparent Real Estate.</h2>
+             <h2 class="headline">Seamless, Secure, Transparent Real Estate.</h2>
              <p class="core-concept">
-                 Kali is a next-generation real estate marketplace leveraging the power of blockchain to digitize and streamline property transactions.
+                Kali is a next-generation marketplace that leverages blockchain technology to digitize, streamline, and secure property transactions."
+
              </p>
              <div class="features">
                  <div class="feature-item">Asset Tokenization</div>
@@ -298,7 +526,7 @@
         </div>
 
         <div class="slide-content slide-why-pharos">
-             <h2 class="headline">Built on Pharos: Unparalleled Speed, Security, and Scalability.</h2>
+             <h2 class="headline">Unparalleled Speed, Security, and Scalability.</h2>
              <div class="pharos-points">
                  <p>"Kali is natively integrated with the Pharos ecosystem, utilizing its core strengths to deliver a superior real estate experience."</p>
                  <p><strong>Deep-Parallel Processing:</strong> Enabling high-throughput, near-instantaneous transaction confirmations crucial for real estate closings.</p>
@@ -338,77 +566,85 @@
             <h2 class="headline">Tapping into the Massive Global Real Estate Market.</h2>
             <div class="market-content">
                 <div class="market-text">
-                    <span class="market-stat">$XXX Trillion</span>
-                    <p class="market-desc">Global Real Estate Market Size.</p>
-                     <span class="market-stat">XX%</span>
-                    <p class="market-desc">Potential for Blockchain Disruption.</p>
-                    <p style="font-size: 1rem; color: #c0c0c0; margin-left: 0;">Targeting tech-savvy investors, global buyers, and those seeking efficiency.</p>
+                    <span class="market-stat">$16 Billion</span>
+                    <p class="market-desc">Kali unlocks trapped value by streamlining transactions through blockchain, paving the way for a projected $16 Trillion tokenized real estate market by 2030.</p>
+                     <span class="market-stat">40%</span>
+                    <p class="market-desc">Potential property sales projected on blockchain platforms by 2030.</p>
+                    <p style="font-size: 1rem; color: #c0c0c0; margin-left: 0;"></p>
                 </div>
-                <div class="chart-placeholder"> Animated Chart/Graph Placeholder </div>
+                <div class="chart-placeholder">Targeting tech-savvy investors, global buyers, and those seeking efficiency.</div>
             </div>
         </div>
 
         <div class="slide-content slide-business-model">
-            <h2 class="headline">Sustainable Growth & Clear Value Proposition.</h2>
-             <p>Lean operational model leveraging blockchain automation reduces overhead. Strong value proposition drives adoption.</p>
+            <h2 class="headline">Value Proposition</h2>
+             <p>A lean operational model powered by blockchain automation slashes overhead, enabling faster adoption and scalable, long-term growth.</p>
             <div class="revenue-streams">
                  <div class="stream-item">
-                     <div class="stream-icon"> <svg class="svg-icon" viewBox="0 0 24 24"><path d="M11.8,10.9c-2.27-.59-3-1.2-3-2.15c0-1.09,1.01-1.85,2.7-1.85c1.78,0,2.44.85,2.5,2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94,.42-3.5,1.68-3.5,3.61c0,2.31,1.91,3.46,4.7,4.13c2.5.6,3,1.48,3,2.41c0,.69-.49,1.75-2.7,1.75c-2.11,0-2.8-.93-2.93-1.95H6.49c.14,1.74,1.46,3.18,3.51,3.63V21h3v-2.15c1.95-.37,3.5-1.5,3.5-3.55c0-2.84-2.43-3.81-4.7-4.4z"></path></svg> </div>
-                     <div class="stream-title">Transaction Fees</div> <div class="stream-desc">Competitive % fee on successful sales.</div>
+                     <div class="stream-icon"> <svg class="svg-icon" viewBox="0 0 20 20"><path d="M11.8,10.9c-2.27-.59-3-1.2-3-2.15c0-1.09,1.01-1.85,2.7-1.85c1.78,0,2.44.85,2.5,2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94,.42-3.5,1.68-3.5,3.61c0,2.31,1.91,3.46,4.7,4.13c2.5.6,3,1.48,3,2.41c0,.69-.49,1.75-2.7,1.75c-2.11,0-2.8-.93-2.93-1.95H6.49c.14,1.74,1.46,3.18,3.51,3.63V21h3v-2.15c1.95-.37,3.5-1.5,3.5-3.55c0-2.84-2.43-3.81-4.7-4.4z"></path></svg> </div>
+                     <div class="stream-title">Transaction Fees</div> <div class="stream-desc">Competitive % fee on sales.</div>
                  </div>
                  <div class="stream-item">
-                     <div class="stream-icon"> <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L17,14.14L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7,14.14L5.82,21L12,17.27Z"></path></svg> </div>
+                     <div class="stream-icon"> <svg class="svg-icon" viewBox="0 0 20 20"><path d="M12,17.27L18.18,21L17,14.14L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7,14.14L5.82,21L12,17.27Z"></path></svg> </div>
                      <div class="stream-title">Premium Listings</div> <div class="stream-desc">Optional fees for enhanced visibility.</div>
                  </div>
                  <div class="stream-item">
-                     <div class="stream-icon"> <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19.43,12.98c.04-.32,.07-.64,.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15,.24-.42,.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49,1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46,2.18,14.25,2,14,2h-4c-.25,0-.46,.18-.49,.42l-.38,2.65c-.61,.25-1.17-.59-1.69,.98l-2.49-1c-.23-.08-.49,0-.61,.22l-2,3.46c-.13,.22-.07,.49,.12,.64l2.11,1.65c-.04,.32-.07,.65-.07,.98s.03,.66,.07,.98l-2.11,1.65c-.19,.15-.24,.42-.12,.64l2,3.46c.12,.22,.39,.3,.61,.22l2.49-1c.52,.4,1.08,.73,1.69,.98l.38,2.65c.03,.24,.24,.42,.49,.42h4c.25,0,.46-.18,.49-.42l.38-2.65c.61-.25,1.17-.59,1.69-.98l2.49,1c.23,.08,.49,0,.61-.22l2-3.46c.12-.22,.07-.49-.12-.64l-2.11-1.65Z"></path></svg> </div>
-                     <div class="stream-title">Value-Added Services</div> <div class="stream-desc">(Future) Analytics, DeFi Integrations.</div>
+                     <div class="stream-icon"> <svg class="svg-icon" viewBox="0 0 20 20"><path d="M19.43,12.98c.04-.32,.07-.64,.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15,.24-.42,.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49,1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46,2.18,14.25,2,14,2h-4c-.25,0-.46,.18-.49,.42l-.38,2.65c-.61,.25-1.17-.59-1.69,.98l-2.49-1c-.23-.08-.49,0-.61,.22l-2,3.46c-.13,.22-.07,.49,.12,.64l2.11,1.65c-.04,.32-.07,.65-.07,.98s.03,.66,.07,.98l-2.11,1.65c-.19,.15-.24,.42-.12,.64l2,3.46c.12,.22,.39,.3,.61,.22l2.49-1c.52,.4,1.08,.73,1.69,.98l.38,2.65c.03,.24,.24,.42,.49,.42h4c.25,0,.46-.18,.49-.42l.38-2.65c.61-.25,1.17-.59,1.69-.98l2.49,1c.23,.08,.49,0,.61-.22l2-3.46c.12-.22,.07-.49-.12-.64l-2.11-1.65Z"></path></svg> </div>
+                     <div class="stream-title">Value-Added Services</div> <div class="stream-desc"> Analytics, DeFi Integrations.</div>
                  </div>
             </div>
         </div>
 
         <div class="slide-content slide-traction">
             <h2 class="headline">Building Momentum, Defining the Future.</h2>
-            <p class="traction-achieved">[Mention any current traction: Beta users, test transactions, partnerships etc.]</p>
+            <div class="traction-achieved">
+                Currently live on Devnet (Pharos 2025) — smart contracts deployed, first test transactions completed.
+            </div>
             <div class="timeline">
-                <div class="timeline-item"> <div class="timeline-date">Q3 [Year]</div> <div class="timeline-desc">Platform Launch on Pharos Mainnet</div> </div>
-                <div class="timeline-item"> <div class="timeline-date">Q4 [Year]</div> <div class="timeline-desc">Integration with [Pharos DeFi?], Fractional Ownership Rollout</div> </div>
-                <div class="timeline-item"> <div class="timeline-date">[Year+1]</div> <div class="timeline-desc">Geographic Expansion, AI-powered Market Insights</div> </div>
-                <div class="timeline-item"> <div class="timeline-date">Future</div> <div class="timeline-desc">Continued innovation and ecosystem growth...</div> </div>
-            </div>
-        </div>
-
-        <div class="slide-content slide-marketing">
-             <div class="marketing-main-content">
-                <div class="marketing-left">
-                    <h2 class="marketing-headline">Cultivating the Kali Community</h2>
-                    <div class="marketing-graphic-placeholder">
-                        <i class="fas fa-users fa-2x" style="color: var(--primary-color);"></i>
-                    </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q2 2025</div>
+                    <div class="timeline-desc">Testnet Launch on Pharos — Secure, Scalable Real Estate Marketplace</div>
                 </div>
-                <div class="marketing-right">
-                     <div class="marketing-capsule">
-                        Engaging the Pharos Ecosystem & Beyond through Education & Collaboration.
-                    </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q3 2025</div>
+                    <div class="timeline-desc">Integration with other DeFi protocols</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q1 2026</div>
+                    <div class="timeline-desc">Geographic Expansion into Key Global Markets; Launch of AI-powered Property Insights</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Beyond 2026</div>
+                    <div class="timeline-desc">Continued product innovation, ecosystem partnerships, and user growth at scale</div>
                 </div>
             </div>
-            <p class="marketing-conclusion">
-                Fostering trust and growth with transparent communication and active participation.
-            </p>
         </div>
 
         <div class="slide-content slide-team">
-            <h2 class="headline">The Visionaries Behind Kali.</h2>
+            <h2 class="headline">The Visionaries Behind</h2>
             <div class="team-grid">
-                <div class="team-member"> <div class="member-photo-placeholder">Photo</div> <div class="member-name">[Team Member Name]</div> <div class="member-title">[Title/Role]</div> <div class="member-expertise">Highlight: Blockchain Dev / Real Estate / FinTech / Marketing</div> </div>
-                <div class="team-member"> <div class="member-photo-placeholder">Photo</div> <div class="member-name">[Team Member Name]</div> <div class="member-title">[Title/Role]</div> <div class="member-expertise">Key skills, prior accomplishments, adaptability focus.</div> </div>
-                <div class="team-member"> <div class="member-photo-placeholder">Photo</div> <div class="member-name">[Team Member Name]</div> <div class="member-title">[Title/Role]</div> <div class="member-expertise">Problem-solving abilities, relevant experience.</div> </div>
+                <div class="team-member">
+                    <div class="member-photo-placeholder">
+                        <img src="Aproved.png" alt="Jonathan Cruz" style="width: 100%; height: auto; border-radius: 50%;">
+                    </div>
+                    <div class="member-name">JONATHAN CRUZ</div>
+                    <div class="member-title">Founder and CEO</div>
+                    <div class="member-expertise">Highlight: Blockchain Researcher / Real Estate / FinTech / Economics</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo-placeholder">
+                        <img src="Daniel.png" alt="Josue Dubon" style="width: 100%; height: auto; border-radius: 50%;">
+                    </div>
+                    <div class="member-name">JOSUE DUBON</div>
+                    <div class="member-title">CTO</div>
+                    <div class="member-expertise">Blockchain Dev / Full Stack Dev / Smart Contract Dev</div>
+                </div>
             </div>
         </div>
 
         <div class="slide-content slide-resourcefulness">
-             <h2 class="headline">Maximizing Impact with Strategic Resource Allocation.</h2>
-             <p>Leveraging <strong>blockchain automation</strong> for lean operations.</p>
+             <h2 class="headline">Strategic Resource Allocation.</h2>
+             <p>Leveraging <strong> automation</strong> for lean operations.</p>
              <p>Utilizing robust and efficient technologies, anchored by the <strong>Pharos blockchain</strong>.</p>
              <p>Actively using tools, grants, and support provided by the <strong>Pharos ecosystem</strong>.</p>
              <p>Building key <strong>strategic partnerships</strong> to accelerate growth efficiently.</p>
@@ -426,24 +662,41 @@
         <div class="slide-content slide-ask">
             <h2 class="headline">Join Us in Building the Future of Real Estate.</h2>
             <p>Seeking:</p>
-            <div class="ask-amount">$X.XM Seed Funding</div>
+            <div class="ask-amount">$500K Seed Funding</div>
             <p class="ask-purpose">To finalize platform development, expand the core team, and execute our go-to-market strategy.</p>
-            <p style="margin-top: 2.5rem; font-size: 1.1rem;">OR</p>
-            <p style="font-size: 1.1rem; color: #c0c0c0;">Seeking Strategic Partnerships with [Specify types of partners]</p>
+            <p style="margin-top: 2.5rem; font-size: 1.1rem;"></p>
+            <p style="font-size: 1.1rem; color: #c0c0c0;">Seeking Strategic Partnerships</p>
         </div>
 
         <div class="slide-content slide-contact">
-            <h2 class="headline" style="border: none; margin-bottom: 2.5rem;">Thank You</h2>
+            <h2 class="headline" style="border: none; margin-bottom: 1.2rem;"></h2>
             <div class="final-logos">
-                 <div class="logo-placeholder">Kali Logo</div>
-                 <div class="pharos-logo-placeholder">Pharos Logo</div>
+                 <div class="logo-placeholder">
+                 <div class="logo-placeholder kali-logo-animated">
+                <h1 class="kali-logo-title">
+                    <span>K</span>
+                    <span>A</span>
+                    <span>L</span>
+                    <span>I</span>
+                </h1>
+             </div>
+             <hr style="border: 1px solid var(--primary-color); margin: 20px 0;">
+                 
             </div>
+            <span class="neon-green">THANK YOU</span>
             <div class="contact-info">
-                <p>Website: <a href="#" target="_blank">www.kali-re.xyz</a></p>
-                <p>Email: <a href="mailto:contact@kali-re.xyz">contact@kali-re.xyz</a></p>
-                <p>Socials: [Twitter/Telegram Links]</p>
+                <p>Website: <a href="#" target="_blank">www.kalii.com</a></p>
+                <p>Email: <a href="mailto:contact@kali-re.xyz">team@lappsnet.com</a></p>
+                <p>Socials: <a href="https://x.com/Kali_Market_" target="_blank">Twitter</a></p>
             </div>
             <p class="call-to-action">Let's build the future of real estate together.</p>
+            <hr>
+
+            <div class="pharos-logo-placeholder">
+                    <img src="pharos_logo.png" alt="Pharos Logo" style="height: 40px; object-fit: contain; vertical-align: middle;">
+                    <img src="hackquest_logo.png" alt="Hackquest Logo" style="height: 28px; margin-left: 10px; vertical-align: middle;">
+            </div>
+
         </div>
 
         <div class="slide-nav">
